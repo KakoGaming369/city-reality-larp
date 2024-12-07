@@ -1,56 +1,62 @@
-body {
-    font-family: Arial, sans-serif;
+/* Resetovanie štýlov */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    box-sizing: border-box;
 }
 
-header {
-    background-color: #0078d7;
-    color: white;
+/* Celkový štýl tela stránky */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+    color: #333;
+}
+
+/* Kontajner pre formulár */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    padding: 1rem 0;
 }
 
-main {
-    padding: 2rem;
+/* Nadpis */
+h1 {
+    margin-bottom: 20px;
+    color: #004080;
 }
 
-form {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-label {
+/* Formulárne štýly */
+.form label {
     display: block;
-    margin: 0.5rem 0 0.25rem;
+    margin: 10px 0 5px;
+    font-weight: bold;
 }
 
-input, select, button {
+.form input {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
+    padding: 8px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
-button {
-    background-color: #0078d7;
-    color: white;
+/* Tlačidlá */
+.submit-btn {
+    background-color: #004080;
+    color: #fff;
     border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #005bb5;
-}
-
-#confirmation {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: #dff0d8;
-    border: 1px solid #d6e9c6;
+    padding: 10px 20px;
+    font-size: 16px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #0059b3;
 }
