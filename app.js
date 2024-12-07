@@ -8,16 +8,16 @@ const PORT = 3000;
 // Middleware na parsovanie JSON dát
 app.use(bodyParser.json());
 
-// Discord webhook URL
-const DISCORD_WEBHOOK_URL = 'YOUR_DISCORD_WEBHOOK_URL';
+// Discord webhook URL - tu vlož svoju URL
+const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN';
 
 app.post('/submit-form', async (req, res) => {
   try {
     const { name, id, date, houseNumber, amount, location } = req.body;
 
-    console.log('Prijatá objednávka:', req.body);
+    console.log('Prijatá požiadavka:', req.body);
 
-    // Posielanie údajov v Discord Embed formáte
+    // Posielanie dát na Discord webhook
     const response = await fetch(DISCORD_WEBHOOK_URL, {
       method: 'POST',
       headers: {
@@ -26,8 +26,8 @@ app.post('/submit-form', async (req, res) => {
       body: JSON.stringify({
         embeds: [
           {
-            title: 'Nová objednávka',
-            color: 7506394, // Pekná farba v hex kóde
+            title: 'Nová rezervácia',
+            color: 7506394,
             fields: [
               { name: 'Meno a priezvisko', value: name, inline: true },
               { name: 'ID dokladu totožnosti', value: id, inline: true },
@@ -38,7 +38,7 @@ app.post('/submit-form', async (req, res) => {
             ],
             timestamp: new Date().toISOString(),
             footer: {
-              text: 'Odoslané z formulára',
+              text: 'Odoslané cez formulár',
             },
           },
         ],
@@ -46,13 +46,15 @@ app.post('/submit-form', async (req, res) => {
     });
 
     if (response.ok) {
-      res.status(200).json({ message: 'Údaje boli úspešne odoslané.' });
+      console.log('Požiadavka odoslaná na Discord');
+      res.status(200).json({ message: 'Požiadavka úspešne odoslaná na Discord' });
     } else {
-      res.status(500).json({ message: 'Nepodarilo sa odoslať údaje na Discord.' });
+      console.error('Chyba pri odosielaní požiadavky na Discord');
+      res.status(500).json({ message: 'Nepodarilo sa odoslať požiadavku na Discord' });
     }
   } catch (error) {
-    console.error('Chyba pri odosielaní:', error);
-    res.status(500).json({ message: 'Chyba servera.' });
+    console.error('Chyba servera:', error);
+    res.status(500).json({ message: 'Chyba servera' });
   }
 });
 
