@@ -42,20 +42,33 @@
           {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ content: `Nová rezervácia: ${JSON.stringify(data)}` }),
+            body: JSON.stringify({
+              embeds: [
+                {
+                  title: "Nová objednávka",
+                  color: 3066993,
+                  fields: [
+                    { name: "Meno a priezvisko", value: data.meno, inline: true },
+                    { name: "ID dokladu", value: data.idDokladu, inline: true },
+                    { name: "Dátum kúpy", value: data.datumKup, inline: true },
+                    { name: "Dom (číselna hodnota)", value: data.domCislo, inline: true },
+                    { name: "Suma domu", value: data.sumaDomu, inline: true },
+                    { name: "Lokácia domu", value: data.lokacia, inline: true },
+                  ],
+                  timestamp: new Date().toISOString(),
+                },
+              ],
+            }),
           }
         );
 
         if (response.ok) {
-          document.getElementById('status-message').innerHTML =
-            '<span style="color: green;">Objednávka úspešne odoslaná!</span>';
+          document.getElementById('status-message').innerText = 'Objednávka úspešne odoslaná!';
         } else {
-          document.getElementById('status-message').innerHTML =
-            '<span style="color: red;">Nepodarilo sa odoslať objednávku.</span>';
+          document.getElementById('status-message').innerText = 'Nepodarilo sa odoslať objednávku.';
         }
       } catch (error) {
-        document.getElementById('status-message').innerHTML =
-          '<span style="color: red;">Chyba: ' + error.message + '</span>';
+        document.getElementById('status-message').innerText = `Chyba: ${error.message}`;
       }
     });
   </script>
