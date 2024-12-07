@@ -7,13 +7,12 @@
 
 /* Celkové nastavenie stránky */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Arial', sans-serif;
   background: linear-gradient(to bottom, #e0eafc, #cfdef3);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #333;
 }
 
 /* Kontajner formulára */
@@ -38,8 +37,8 @@ h1 {
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
 /* Nastavenie inputov */
@@ -75,7 +74,7 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Status správa */
+/* Správa po odoslaní */
 #status-message {
   margin-top: 10px;
   color: green;
