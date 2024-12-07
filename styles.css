@@ -1,45 +1,50 @@
+/* Reset štýlov */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Hlavné pozadie */
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  color: white;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  font-family: Arial, sans-serif;
+  color: white;
 }
 
+/* Formular */
 .form-container {
-  text-align: center;
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.7);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  text-align: center;
 }
 
 form {
-  margin: 0 auto;
-  max-width: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
-label,
 input,
-button {
+label {
+  margin: 10px 0;
   padding: 8px;
-  margin-bottom: 10px;
-  width: 100%;
 }
 
 button {
+  padding: 10px;
   background-color: #24ecff;
-  color: white;
   border: none;
+  color: white;
+  font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
