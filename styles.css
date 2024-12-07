@@ -1,53 +1,64 @@
-/* Reset štýlov */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Hlavné pozadie */
+/* Telo stránky */
 body {
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
   font-family: Arial, sans-serif;
-  color: white;
+  background: linear-gradient(to right, #6dd5ed, #2193f3);
+  color: #333;
 }
 
-/* Formular */
-.form-container {
-  background: rgba(0, 0, 0, 0.7);
+/* Kontajner pre formulár */
+.container {
+  background: white;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
   text-align: center;
 }
 
+/* Štýl formulára */
 form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
-input,
 label {
-  margin: 10px 0;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
   padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 button {
   padding: 10px;
-  background-color: #24ecff;
+  background-color: #2193f3;
   border: none;
   color: white;
-  font-size: 16px;
+  border-radius: 4px;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: #1ea3f5;
+  background-color: #6dd5ed;
 }
