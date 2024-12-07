@@ -10,22 +10,35 @@ document.getElementById('order-form').addEventListener('submit', async (e) => {
     location: document.getElementById('location').value,
   };
 
-  console.log('Posielam tieto dáta:', formData);
+  console.log('Form data:', formData);
+
+  const webhookURL = "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL";
 
   try {
-    const response = await fetch('https://your-backend-url.com/submit-form', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
+    const response = await fetch(webhookURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        content: `🛒 Nová objednávka: 
+        - Meno: ${formData.name}
+        - ID dokladu: ${formData.id}
+        - Dátum kúpy: ${formData.date}
+        - Číslo domu: ${formData.houseNumber}
+        - Suma domu: ${formData.amount}
+        - Lokácia domu: ${formData.location}`,
+      }),
     });
 
     if (response.ok) {
-      alert('Objednávka odoslaná!');
+      alert("Objednávka bola úspešne odoslaná na Discord.");
     } else {
-      alert('Nepodarilo sa odoslať objednávku');
+      alert("Nepodarilo sa odoslať objednávku.");
+      console.log("Response error:", response);
     }
   } catch (error) {
-    console.error('Chyba pri odosielaní:', error);
-    alert('Chyba!');
+    alert("Chyba pri odosielaní.");
+    console.error("Chyba: ", error);
   }
 });
