@@ -1,49 +1,48 @@
-/* Základný reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Pozadie stránky */
 body {
-  background: linear-gradient(to bottom, #1e3c72, #2a5298);
   font-family: Arial, sans-serif;
-  height: 100vh;
+  background: linear-gradient(to right, #6a11cb, #2575fc);
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
-/* Formulár container */
-.container {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  width: 100%;
+.form-container {
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Vzhľad formulára */
-.container input,
-.container button {
+form {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+label,
+input,
+button {
+  padding: 8px;
+  margin-bottom: 10px;
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-  font-size: 16px;
 }
 
-.container button {
-  background-color: #007bff;
+button {
+  background-color: #24ecff;
   color: white;
+  border: none;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.container button:hover {
-  background-color: #0056b3;
+button:hover {
+  background-color: #1ea3f5;
 }
