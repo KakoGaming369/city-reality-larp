@@ -1,45 +1,45 @@
-/* Resetovanie štýlov pre konzistentný vzhľad naprieč prehliadačmi */
+/* Resetovanie predvolených štýlov */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Štýlovanie celkovej stránky */
+/* Celkové nastavenie stránky */
 body {
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom, #f0f4f8, #d9e2ec);
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #e0eafc, #cfdef3);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* Kontajner pre formulár */
-.container {
-  background-color: white;
-  padding: 25px 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  max-width: 500px;
-  text-align: center;
-  width: 90%;
-}
-
-/* Nadpis formulára */
-h1 {
-  margin-bottom: 15px;
-  font-size: 28px;
   color: #333;
 }
 
-/* Formulár styling */
+/* Kontajner formulára */
+.container {
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  text-align: center;
+  width: 100%;
+}
+
+/* Nadpis */
+h1 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 28px;
+}
+
+/* Nastavenie formulára */
 form {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 15px;
-  margin-bottom: 15px;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 /* Nastavenie inputov */
@@ -47,8 +47,9 @@ input[type="text"],
 input[type="number"],
 input[type="date"] {
   padding: 10px;
-  border: 1px solid #aaa;
-  border-radius: 8px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  font-size: 16px;
   transition: all 0.2s ease;
 }
 
@@ -56,7 +57,6 @@ input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="date"]:focus {
   border-color: #007bff;
-  outline: none;
 }
 
 /* Tlačidlo na odoslanie */
@@ -65,9 +65,9 @@ button {
   border: none;
   color: white;
   padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 8px;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
@@ -75,10 +75,9 @@ button:hover {
   background-color: #0056b3;
 }
 
-/* Správa o odoslaní */
+/* Status správa */
 #status-message {
   margin-top: 10px;
-  font-size: 14px;
   color: green;
-  text-align: center;
+  font-size: 14px;
 }
