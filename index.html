@@ -1,23 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
-  <title>Realitná Objednávka</title>
+  <title>Formulár na odosielanie</title>
 </head>
 <body>
-  <div class="container">
-    <h1>Objednávka domu</h1>
-    <form action="https://discord.com/api/webhooks/1315002072243896491/7e1zybmrAFOwlEZ2r48F8R2w-RBNTb1Bsf7E_df174Phyerrxq5PNvQvRDaqcm4-uhVO" method="POST">
-      <input type="text" name="meno" placeholder="Meno a priezvisko" required>
-      <input type="text" name="id" placeholder="ID dokladu totožnosti" required>
-      <input type="text" name="datum" placeholder="Dátum kúpy" required>
-      <input type="number" name="dom" placeholder="Dom (číselná hodnota)" required>
-      <input type="number" name="suma" placeholder="Suma domu" required>
-      <input type="text" name="lokacia" placeholder="Lokácia domu" required>
-      <button type="submit">Odoslať objednávku</button>
-    </form>
-  </div>
+  <h1>Objednávka domu</h1>
+  <form id="orderForm">
+    <label>Meno a priezvisko: </label>
+    <input type="text" name="name" required>
+    <br>
+    <label>ID dokladu totožnosti: </label>
+    <input type="text" name="id" required>
+    <br>
+    <label>Dátum kúpy: </label>
+    <input type="date" name="date" required>
+    <br>
+    <label>Dom (číselná hodnota): </label>
+    <input type="number" name="houseNumber" required>
+    <br>
+    <label>Suma domu: </label>
+    <input type="number" name="amount" required>
+    <br>
+    <label>Lokácia domu: </label>
+    <input type="text" name="location" required>
+    <br>
+    <button type="submit">Odoslať objednávku</button>
+  </form>
+  
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      
+      const formData = new FormData(event.target);
+      const data = {
+        name: formData.get('name'),
+        id: formData.get('id'),
+        date: formData.get('date'),
+        houseNumber: formData.get('houseNumber'),
+        amount: formData.get('amount'),
+        location: formData.get('location'),
+      };
+
+      console.log('Odosielanie dát na server:', data);
+
+      try {
+        const response = await fetch('/submit-form', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          alert('Objednávka odoslaná!');
+        } else {
+          alert('Nepodarilo sa odoslať objednávku.');
+        }
+      } catch (error) {
+        console.error('Chyba:', error);
+        alert('Nepodarilo sa odoslať objednávku.');
+      }
+    });
+  </script>
 </body>
 </html>
