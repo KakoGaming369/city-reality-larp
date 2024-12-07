@@ -18,6 +18,7 @@
       <input type="text" name="lokacia" placeholder="Lokácia domu" required />
       <button type="submit">Odoslať objednávku</button>
     </form>
+    <p id="status-message"></p>
   </div>
 
   <script>
@@ -36,21 +37,25 @@
       };
 
       try {
-        const response = await fetch('https://discord.com/api/webhooks/1315002072243896491/7e1zybmrAFOwlEZ2r48F8R2w-RBNTb1Bsf7E_df174Phyerrxq5PNvQvRDaqcm4-uhVO', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
+        const response = await fetch(
+          'https://discord.com/api/webhooks/1315002072243896491/7e1zybmrAFOwlEZ2r48F8R2w-RBNTb1Bsf7E_df174Phyerrxq5PNvQvRDaqcm4-uhVO',
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ content: `Nová rezervácia: ${JSON.stringify(data)}` }),
+          }
+        );
 
         if (response.ok) {
-          alert('Objednávka úspešne odoslaná!');
+          document.getElementById('status-message').innerHTML =
+            '<span style="color: green;">Objednávka úspešne odoslaná!</span>';
         } else {
-          alert('Nepodarilo sa odoslať objednávku.');
+          document.getElementById('status-message').innerHTML =
+            '<span style="color: red;">Nepodarilo sa odoslať objednávku.</span>';
         }
       } catch (error) {
-        alert('Chyba pri odosielaní: ' + error.message);
+        document.getElementById('status-message').innerHTML =
+          '<span style="color: red;">Chyba: ' + error.message + '</span>';
       }
     });
   </script>
