@@ -1,34 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Objednávka domu</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Objednávka domu</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="container">
     <h1>Objednávka domu</h1>
-    <form id="houseForm">
-        <label for="fullName">Meno a priezvisko:</label>
-        <input type="text" id="fullName" name="fullName" required><br><br>
-
-        <label for="idNumber">ID dokladu totožnosti:</label>
-        <input type="text" id="idNumber" name="idNumber" required><br><br>
-
-        <label for="purchaseDate">Dátum kúpy:</label>
-        <input type="date" id="purchaseDate" name="purchaseDate" required><br><br>
-
-        <label for="houseNumber">Dom (číselná hodnota):</label>
-        <input type="number" id="houseNumber" name="houseNumber" required><br><br>
-
-        <label for="housePrice">Suma domu:</label>
-        <input type="number" id="housePrice" name="housePrice" required><br><br>
-
-        <label for="houseLocation">Lokácia domu:</label>
-        <input type="text" id="houseLocation" name="houseLocation" required><br><br>
-
-        <button type="submit">Odoslať objednávku</button>
+    <form>
+      <input type="text" placeholder="Meno a priezvisko" />
+      <input type="number" placeholder="ID dokladu totožnosti" />
+      <input type="date" placeholder="Dátum kúpy" />
+      <input type="number" placeholder="Dom (číselná hodnota)" />
+      <input type="text" placeholder="Suma domu" />
+      <input type="text" placeholder="Lokácia domu" />
+      <button type="submit">Odoslať objednávku</button>
     </form>
-
-    <script src="script.js"></script>
+  </div>
 </body>
 </html>
