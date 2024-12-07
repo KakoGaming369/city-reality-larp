@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <h1>Objednávka domu</h1>
-    <form action="https://discord.com/api/webhooks/1315002072243896491/7e1zybmrAFOwlEZ2r48F8R2w-RBNTb1Bsf7E_df174Phyerrxq5PNvQvRDaqcm4-uhVO" method="POST">
+    <form id="orderForm">
       <input type="text" name="meno" placeholder="Meno a priezvisko" required />
       <input type="text" name="idDokladu" placeholder="ID dokladu totožnosti" required />
       <input type="date" name="datumKup" required />
@@ -19,5 +19,40 @@
       <button type="submit">Odoslať objednávku</button>
     </form>
   </div>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+
+      const data = {
+        meno: formData.get('meno'),
+        idDokladu: formData.get('idDokladu'),
+        datumKup: formData.get('datumKup'),
+        domCislo: formData.get('domCislo'),
+        sumaDomu: formData.get('sumaDomu'),
+        lokacia: formData.get('lokacia'),
+      };
+
+      try {
+        const response = await fetch('https://discord.com/api/webhooks/1315002072243896491/7e1zybmrAFOwlEZ2r48F8R2w-RBNTb1Bsf7E_df174Phyerrxq5PNvQvRDaqcm4-uhVO', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          alert('Objednávka úspešne odoslaná!');
+        } else {
+          alert('Nepodarilo sa odoslať objednávku.');
+        }
+      } catch (error) {
+        alert('Chyba pri odosielaní: ' + error.message);
+      }
+    });
+  </script>
 </body>
 </html>
