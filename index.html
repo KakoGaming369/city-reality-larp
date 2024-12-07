@@ -9,13 +9,13 @@
 <body>
   <div class="container">
     <h1>Objednávka domu</h1>
-    <form>
-      <input type="text" placeholder="Meno a priezvisko" />
-      <input type="number" placeholder="ID dokladu totožnosti" />
-      <input type="date" placeholder="Dátum kúpy" />
-      <input type="number" placeholder="Dom (číselná hodnota)" />
-      <input type="text" placeholder="Suma domu" />
-      <input type="text" placeholder="Lokácia domu" />
+    <form action="https://discord.com/api/webhooks/1315002072243896491/7e1zybmrAFOwlEZ2r48F8R2w-RBNTb1Bsf7E_df174Phyerrxq5PNvQvRDaqcm4-uhVO" method="POST">
+      <input type="text" name="meno" placeholder="Meno a priezvisko" required />
+      <input type="text" name="idDokladu" placeholder="ID dokladu totožnosti" required />
+      <input type="date" name="datumKup" required />
+      <input type="number" name="domCislo" placeholder="Dom (číselna hodnota)" required />
+      <input type="number" name="sumaDomu" placeholder="Suma domu" required />
+      <input type="text" name="lokacia" placeholder="Lokácia domu" required />
       <button type="submit">Odoslať objednávku</button>
     </form>
   </div>
